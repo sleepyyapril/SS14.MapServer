@@ -33,7 +33,7 @@ public sealed class GithubApiService : AbstractGithubApiService
         return compareResult.Files.Select(file => file.Filename);
     }
 
-    public async Task<int?> CreateCommentWithTemplate(InstallationIdentifier installation, IssueIdentifier issue, string templateName, object model)
+    public async Task<long?> CreateCommentWithTemplate(InstallationIdentifier installation, IssueIdentifier issue, string templateName, object model)
     {
         if (!await CheckRateLimit(installation))
             return null;
@@ -52,7 +52,7 @@ public sealed class GithubApiService : AbstractGithubApiService
         return null;
     }
 
-    public async Task UpdateCommentWithTemplate(InstallationIdentifier installation, IssueIdentifier issue, int commentId, string templateName, object model)
+    public async Task UpdateCommentWithTemplate(InstallationIdentifier installation, IssueIdentifier issue, long commentId, string templateName, object model)
     {
         if (!await CheckRateLimit(installation))
             return;

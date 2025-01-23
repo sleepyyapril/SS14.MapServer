@@ -13,5 +13,5 @@ public class PullRequestComment
     [Required]
     public int IssueNumber { get; set; }
     [Required]
-    public int CommentId { get; set; }
+    public long CommentId { get; set; }
 }
